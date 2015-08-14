@@ -70,7 +70,9 @@ class DetailViewController: UIViewController {
     runData.pace = pace
     RunDataManager.sharedInstance.realm.commitWriteTransaction()
     let hkPaceQuantity = HKQuantity(unit: paceUnit, doubleValue: pace)
-    self.paceLabel.text = hkPaceQuantity.description
+    let pacePerKilometers = 1000/pace/60
+
+    paceLabel.text = "Pace: " + String(format: "%.2f",pacePerKilometers)+" m/km"
     self.dateLabel.text = runData.date.description
     }
     

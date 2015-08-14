@@ -106,8 +106,9 @@ class NewRunViewController: UIViewController{
         
         let paceUnit = HKUnit.secondUnit().unitDividedByUnit(HKUnit.meterUnit())
         let pace = distance/Double(duration)
+        let pacePerKilometers = 1000/pace/60
         let hkPaceQuantity = HKQuantity(unit: paceUnit, doubleValue: pace)
-        paceLabel.text = "Pace: " + hkPaceQuantity.description
+        paceLabel.text = "Pace: " + String(format: "%.2f",pacePerKilometers)+" m/km "
     }
 
   @IBAction func stopPressed(sender: AnyObject) {
